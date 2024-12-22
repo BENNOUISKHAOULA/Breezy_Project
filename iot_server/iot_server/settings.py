@@ -16,7 +16,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -25,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kd=1!_e&854&4t8to6gb09+r+*he^46u-i$j1q1m@jn3oe2m!x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.87.104', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.87.104', 'localhost', 'itskb.pythonanywhere.com']
 
 APPEND_SLASH = False
 
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Doit être placé en haut
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
